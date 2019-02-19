@@ -61,7 +61,7 @@ namespace MontadorDeUnidades
                     }
                     return new KeyValuePair<bool, string>(false, "El dispositivo no es un dispositivo de red");
                 }
-                var respuestaComando = EjecutaComando("net", $"use /D {letra}:");
+                var respuestaComando = EjecutaComando("net", $"use /D {letra}: /y");
                 if (respuestaComando == "Ok")
                 {
                     return new KeyValuePair<bool, string>(true, respuestaComando);
