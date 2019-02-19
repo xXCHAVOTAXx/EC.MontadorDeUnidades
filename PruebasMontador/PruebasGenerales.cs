@@ -65,5 +65,18 @@ namespace PruebasMontador
             Assert.IsFalse(desmontarCorrecto.Key);
             Assert.IsTrue(desmontarCorrecto.Value == "El dispositivo no es un dispositivo de red");
         }
+
+        [TestMethod]
+        public void PruebaDesconectarCarpetaEnUso()
+        {
+            var montadoCorrecto = _montador.Conectar("X", @"\\10.10.16.17\Compartida", "desarrollo", "D354rr0ll0");
+            if (!montadoCorrecto.Key)
+            {
+                // Error
+            }
+
+            var respuestaDesconecta = _montador.Desconectar("X");
+            Assert.IsTrue(respuestaDesconecta.Key);
+        }
     }
 }

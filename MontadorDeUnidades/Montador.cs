@@ -130,7 +130,7 @@ namespace MontadorDeUnidades
                 p.StartInfo.Arguments = $" {argv}";
                 p.StartInfo.CreateNoWindow = true;
                 p.Start();
-                p.WaitForExit();
+                //p.WaitForExit();
                 string output = p.StandardOutput.ReadToEnd();
                 p.Dispose();
                 return "Ok";
