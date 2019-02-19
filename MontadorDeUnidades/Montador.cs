@@ -18,7 +18,7 @@ namespace MontadorDeUnidades
         /// <param name="direccionRemota">Dirección de la unidad de red. Ej. \\10.10.1.1, \\10.10.1.1\carpeta</param>
         /// <param name="usuario">Usuario para acceder a la unidad de red</param>
         /// <param name="contra">contraseña para acceder a la unidad de red</param>
-        /// <returns></returns>
+        /// <returns>Devuelve un KeyValuePair con un bool si es correcto o no y un string para el mensaje en caso de error</returns>
         public KeyValuePair<bool, string> Conectar(string letra, string direccionRemota, string usuario, string contra)
         {
             try
@@ -46,7 +46,7 @@ namespace MontadorDeUnidades
         /// Desconecta una unidad de red segun la letra dada
         /// </summary>
         /// <param name="letra">Letra de la unidad a desconectar</param>
-        /// <returns></returns>
+        /// <returns>Devuelve un KeyValuePair con un bool si es correcto o no y un string para el mensaje en caso de error</returns>
         public KeyValuePair<bool, string> Desconectar(string letra)
         {
             try
@@ -78,7 +78,7 @@ namespace MontadorDeUnidades
         /// Revisa que el dispositivo dado este libre o como esta montado
         /// </summary>
         /// <param name="dispositivo">Dispositivo a revisar</param>
-        /// <returns></returns>
+        /// <returns>Devuelve un int nulleable dependiendo del tipo de dispositivo encontrado</returns>
         private int? RevisaDispositivo(string dispositivo)
         {
             DriveInfo[] drives = DriveInfo.GetDrives();

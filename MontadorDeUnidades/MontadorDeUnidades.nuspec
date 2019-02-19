@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>EC.MontadorDeUnidades</id>
+    <version>1.0.0</version>
+    <title>Montador de unidades de red</title>
+    <authors>Salvador Hernández Galindo</authors>
+    <owners>Salvador Hernández Galindo</owners>
+    <license type="expression">MIT</license>
+    <!-- <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl> -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Montador de unidades de red para que este disponible para la aplicación. Permite coectar y desconectar unidades</description>
+    <!-- <releaseNotes>Summary of changes made in this release of the package.</releaseNotes> -->
+    <copyright>Copyright 2019</copyright>
+    <!-- <tags>Tag1 Tag2</tags> -->
+  </metadata>
+</package>
