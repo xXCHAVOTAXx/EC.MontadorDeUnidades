@@ -27,7 +27,7 @@ namespace MontadorDeUnidades
                 int? disponibilidadDispositivo = RevisaDispositivo(dispositivo);
                 if (disponibilidadDispositivo != null)
                 {
-                    return new KeyValuePair<bool, string>(false, "El dispositivo esta ocupado");
+                    return new KeyValuePair<bool, string>(false, "El dispositivo esta ocupado: " + disponibilidadDispositivo + "-" + TipoDispositivo(disponibilidadDispositivo));
                 }
                 string respuestaComando = EjecutaComando("net", $@"use {letra}: {direccionRemota} /user:{usuario} {contra} /p:yes");
                 if (respuestaComando.StartsWith("Ok"))
@@ -59,7 +59,7 @@ namespace MontadorDeUnidades
                     {
                         return new KeyValuePair<bool, string>(false, "La letra proporcionada no esta asignada");
                     }
-                    return new KeyValuePair<bool, string>(false, "El dispositivo no es un dispositivo de red");
+                    return new KeyValuePair<bool, string>(false, "El dispositivo no es un dispositivo de red: " + disponibilidadDispositivo + "-" + TipoDispositivo(disponibilidadDispositivo));
                 }
                 var respuestaComando = EjecutaComando("net", $"use /D {letra}: /y");
                 if (respuestaComando == "Ok")
@@ -111,6 +111,30 @@ namespace MontadorDeUnidades
             //    //case DriveType.Unknown:
             //    //    break;
             //}
+        }
+
+        private string TipoDispositivo(int? tipo)
+        {
+            DriveType tipoDispositivo = (DriveType)tipo;
+            switch (tipoDispositivo)
+            {
+                case DriveType.Fixed:
+                    return "unidad montada en local";
+                case DriveType.Network:
+                    return "unidad montada en red";
+                case DriveType.Removable:
+                    return "unidad extraible";
+                default:
+                    return "unidad de tipo indeterminado. Revisar los dispositivos del servidor";
+                    //case DriveType.CDRom:
+                    //    break;
+                    //case DriveType.NoRootDirectory:
+                    //    break;
+                    //case DriveType.Ram:
+                    //    break;
+                    //case DriveType.Unknown:
+                    //    break;
+            }
         }
 
         /// <summary>
